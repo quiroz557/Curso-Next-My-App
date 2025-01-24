@@ -1,16 +1,17 @@
 interface CategoryProps {
-    params: Promise<{
-        category: string;
-    }>
+    params: {
+      categories: string[];
+    }
 } 
 
 export default async function Category({params} : CategoryProps){
     const resolvedParams = await params;
-    const { category } = resolvedParams;
+    const { categories } = resolvedParams;
+    console.log(categories)
     
     return (
       <h1>
-        Categoría dinámica: { category }
+        Categoría dinámica: { categories }
       </h1>
     )
 }
